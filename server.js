@@ -6,16 +6,8 @@ var PORT = 3000; // as port is capital letter, it means in javascript that it sh
 	res.send('Hello Express!');
 });*/
 
-var middleware = {
-	requireAuthentication: function (req, res, next) {
-		console.log('private route hit!');
-	},
-	logger: function (req, res, next){
-			new Date().toString();
-		console.log('Request: ' + Date().toString() + ' ' +req.method + ' ' + req.originalUrl);
-		next();
-	}
-};
+var middleware = require('./middleware.js');
+
 
 app.use(middleware.logger);
 //app.use(middleware.requireAuthentication);
